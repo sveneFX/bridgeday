@@ -1,0 +1,12 @@
+{
+  "name": "bridgeday",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Brückentage-Planer: statische Seiten pro Bundesland und Jahr",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": { "node": ">=18" }
+}
