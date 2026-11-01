@@ -1,8 +1,10 @@
 // Zentrale Einstellungen. Vor dem Livegang die TODO-Felder ausfüllen.
 export const config = {
   siteName: 'Brückentage-Planer',
-  // Ohne abschließenden Schrägstrich. Nach dem Kauf einer eigenen Domain hier ändern.
-  siteUrl: process.env.SITE_URL || 'https://bridgeday.pages.dev',
+  // Volle Adresse ohne abschließenden Schrägstrich. Auf GitHub Pages setzt der Workflow
+  // SITE_URL und BASE_PATH automatisch (mit eigener Domain ist BASE_PATH leer).
+  siteUrl: (process.env.SITE_URL || 'https://svenefx.github.io/bridgeday').replace(/\/$/, ''),
+  basePath: (process.env.BASE_PATH || '').replace(/\/$/, ''),
   years: [2026, 2027, 2028],
   focusYear: 2027,
 

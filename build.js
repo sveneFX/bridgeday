@@ -11,11 +11,17 @@ rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
 if (existsSync('public')) cpSync('public', OUT, { recursive: true });
 
+// Interne Links um den Unterordner ergänzen (z. B. /bridgeday auf github.io).
+const base = config.basePath;
+const withBase = (html) => (base
+  ? html.replace(/(href|src)="\//g, `$1="${base}/`).replace(/location\.href='\//g, `location.href='${base}/`)
+  : html);
+
 const sitemap = [];
 function writePage({ path, html }, { inSitemap = true, priority = '0.6' } = {}) {
   const file = path === '/404' ? join(OUT, '404.html') : join(OUT, path, 'index.html');
   mkdirSync(dirname(file), { recursive: true });
-  writeFileSync(file, html);
+  writeFileSync(file, withBase(html));
   if (inSitemap) sitemap.push({ path, priority });
 }
 

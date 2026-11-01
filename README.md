@@ -10,12 +10,13 @@ npm run build   # Seiten nach dist/ erzeugen
 npm test        # Feiertags- und Brückentage-Berechnung prüfen
 ```
 
-## Hosting auf Cloudflare Pages
+## Hosting auf GitHub Pages
 
-- Framework-Preset: keins
-- Build-Befehl: `npm run build`
-- Ausgabeverzeichnis: `dist`
-- Umgebungsvariable (optional): `SITE_URL=https://deine-domain.de`, sobald eine eigene Domain verbunden ist
+Der Workflow `.github/workflows/pages.yml` testet, baut und veröffentlicht bei jedem Push auf `main`
+(und monatlich automatisch). Einmalig einschalten: Settings → Pages → Source: **GitHub Actions**.
+
+Adresse und Unterordner (`SITE_URL`, `BASE_PATH`) setzt der Workflow selbst. Mit eigener Domain
+(Settings → Pages → Custom domain) liegt die Seite im Hauptverzeichnis, das passt sich automatisch an.
 
 ## Vor dem Livegang
 
